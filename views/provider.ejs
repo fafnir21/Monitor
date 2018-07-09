@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+
+<!-- after login you are directed to this page which (for now) only contains nav bar and welcome message -->
+
+<html>
+<head>
+	<title>Monitor: Providers</title>
+	<link rel="stylesheet" href="/styles/style.css">
+
+</head>
+    
+<body>
+
+	<%- include header %>
+
+    <%- include search %>
+
+    <%- include pageIndex %>
+
+    <table border='1'>
+        <% for(var i = 0; i < data.length; i++) { %>
+            <% if(i == 0){ %>
+            <tr>
+                <td>option&nbsp;</td>
+                <% for(var temp in data[i]) { %>
+                <td><%= temp %>&nbsp;</td>
+                <% } %>
+            </tr>
+            <% } %>
+            <tr>
+                <td>
+                    <a href="/providerEdit/<%= data[i]['id'] %>">edit</a>
+                    <a href="/providerDelete/<%= data[i]['id'] %>" onclick="return confirm('Confirm to Delete?');">delete</a>
+                </td>
+                <% for (var temp in data[i]) { %>
+                <td><%= data[i][temp] %></td>
+                <% } %>
+            </tr>
+        <% } %>
+    </table>
+
+</body>
+</html>
+

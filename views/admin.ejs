@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<title>Monitor: Show Administrators</title>
+    <link rel="stylesheet" href="/styles/style.css">
+	
+</head>
+
+<body>
+
+    <%- include header %>
+
+    <!--  Store the displayed data getting from back end  -->
+    <table border='1'>
+        <% for(var i = 0; i < data.length; i++) { %>
+            <% if(i == 0){ %>
+            <tr>
+                <td>option</td>
+                <% for(var temp in data[i]) { %>
+                <% if(temp !== 'username' && temp !== 'password' && temp !== 'role' && temp !== 'id' && temp !== 'createdAt' && temp !== 'updatedAt') { %>
+                <% continue; } %>
+                <td><%= temp %></td>
+                <% } %>
+            </tr>
+            <% } %>
+            <tr>
+                <td>
+                    <a href="/adminEdit/<%= data[i]['id'] %>">edit</a>
+                    <a href="/adminDelete/<%= data[i]['id'] %>" onclick="return confirm('Confirm to Delete?');">delete</a>
+                </td>
+                <% for (var temp in data[i]) { %>
+                <% if(temp !== 'username' && temp !== 'password' && temp !== 'role' && temp !== 'id' && temp !== 'createdAt' && temp !== 'updatedAt') { %>
+                <% continue; } %>
+                <td><%= data[i][temp] %></td>
+                <% } %>
+            </tr>
+        <% } %>
+    </table>
+   
+</body>
+</html>
+

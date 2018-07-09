@@ -1,0 +1,100 @@
+    <!--  Display the page index  -->
+
+    <% if(keyword === undefined) { %>
+
+        <a href="/<%= routeName %>?page=1">START</a>&nbsp;
+        <% if(page > 1) { %>
+            <a href="/<%= routeName %>?page=<%= page - 1 %>">PREV</a>&nbsp;
+        <% } %>
+        <% //Less than 5 pages in total, do not need to move center number. %>
+        <% if(maxPageNumber < 5) { %>
+            <% for(var i = 1; i <= maxPageNumber; i++) { %>
+                <% if(i != page) { %>
+                    <a href="/<%= routeName %>?page=<%= i %>"><%= i %></a>&nbsp;
+                <% } else { %>
+                    <%= i %>&nbsp;
+                <% } %>
+            <% } %>
+        <% } else { %>
+        <% //More than 5 pages, then check if current page number is smaller than 3 or bigger than (max-2), do not move. %>
+            <% if(page <= 3) { %>
+                <% for(var i = 1; i <= 5; i++) { %>
+                    <% if(i != page) { %>
+                        <a href="/<%= routeName %>?page=<%= i %>"><%= i %></a>&nbsp;
+                    <% } else { %>
+                        <%= i %>&nbsp;
+                    <% } %>
+                <% } %>
+            <% } else if(page >= maxPageNumber - 2) { %>
+                <% for(var i = maxPageNumber - 4; i <= maxPageNumber; i++) { %>
+                    <% if(i != page) { %>
+                        <a href="/<%= routeName %>?page=<%= i %>"><%= i %></a>&nbsp;
+                    <% } else { %>
+                        <%= i %>&nbsp;
+                    <% } %>
+                <% } %>
+            <% //Otherwise, move the page number to put it at the center. %>    
+            <% } else { %>
+                <% for(var i = page - 2; i <= page + 2; i++) { %>
+                    <% if(i != page) { %>
+                        <a href="/<%= routeName %>?page=<%= i %>"><%= i %></a>&nbsp;
+                    <% } else { %>
+                        <%= i %>&nbsp;
+                    <% } %>
+                <% } %>
+            <% } %>
+        <% } %>
+        <% if(page < maxPageNumber) { %>
+            <a href="/<%= routeName %>?page=<%= page + 1%>">NEXT</a>&nbsp;
+        <% } %>
+        <a href="/<%= routeName %>?page=<%= maxPageNumber %>">END</a>
+
+    <% } else { %>
+
+        <a href="/<%= routeName %>?keyword=<%= keyword %>&page=1">START</a>&nbsp;
+        <% if(page > 1) { %>
+            <a href="/<%= routeName %>?keyword=<%= keyword %>&page=<%= page - 1 %>">PREV</a>&nbsp;
+        <% } %>
+        <% //Less than 5 pages in total, do not need to move center number. %>
+        <% if(maxPageNumber < 5) { %>
+            <% for(var i = 1; i <= maxPageNumber; i++) { %>
+                <% if(i != page) { %>
+                    <a href="/<%= routeName %>?keyword=<%= keyword %>&page=<%= i %>"><%= i %></a>&nbsp;
+                <% } else { %>
+                    <%= i %>&nbsp;
+                <% } %>
+            <% } %>
+        <% } else { %>
+        <% //More than 5 pages, then check if current page number is smaller than 3 or bigger than (max-2), do not move. %>
+            <% if(page <= 3) { %>
+                <% for(var i = 1; i <= 5; i++) { %>
+                    <% if(i != page) { %>
+                        <a href="/<%= routeName %>?keyword=<%= keyword %>&page=<%= i %>"><%= i %></a>&nbsp;
+                    <% } else { %>
+                        <%= i %>&nbsp;
+                    <% } %>
+                <% } %>
+            <% } else if(page >= maxPageNumber - 2) { %>
+                <% for(var i = maxPageNumber - 4; i <= maxPageNumber; i++) { %>
+                    <% if(i != page) { %>
+                        <a href="/<%= routeName %>?keyword=<%= keyword %>&page=<%= i %>"><%= i %></a>&nbsp;
+                    <% } else { %>
+                        <%= i %>&nbsp;
+                    <% } %>
+                <% } %>
+            <% //Otherwise, move the page number to put it at the center. %>    
+            <% } else { %>
+                <% for(var i = page - 2; i <= page + 2; i++) { %>
+                    <% if(i != page) { %>
+                        <a href="/<%= routeName %>?keyword=<%= keyword %>&page=<%= i %>"><%= i %></a>&nbsp;
+                    <% } else { %>
+                        <%= i %>&nbsp;
+                    <% } %>
+                <% } %>
+            <% } %>
+        <% } %>
+        <% if(page < maxPageNumber) { %>
+            <a href="/<%= routeName %>?keyword=<%= keyword %>&page=<%= page + 1%>">NEXT</a>&nbsp;
+        <% } %>
+        <a href="/<%= routeName %>?keyword=<%= keyword %>&page=<%= maxPageNumber %>">END</a>
+    <% } %>

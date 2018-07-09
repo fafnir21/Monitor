@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+	<title> Edit User Notification </title>
+	<link rel="stylesheet" href="/styles/style.css">
+
+</head>
+
+<body>
+
+	<%- include header %>
+
+	<br>
+
+	<!-- text area -->
+	<form method="post">
+		<center>Title: <input name="title" size="100" value="<%=data.title%>"></center>
+		<br>
+		<center>Text: <textarea name="text" rows="20" cols="100"><%=data.text%></textarea></center>
+		<br>
+		<center>Date: <input name="date" size="100" value="<%=data.date%>" pattern="^(0[1-9]|1[0-2]).(0[1-9]|1\d|2\d|3[01]).(19|20)\d{2}$" ></center>
+		<br>
+		<center>Type: <input name="feedtype" size="100" value="<%=data.feedtype%>"></center>
+		<br>
+		<center>Author: <input name="author" size="100" value="<%=data.author%>"></center>
+		<br>
+		<center><input type="submit" value="Submit"></center>
+	</form>
+
+
+</body>
+</html>

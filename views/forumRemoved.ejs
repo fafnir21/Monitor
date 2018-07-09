@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+
+<!-- after login you are directed to this page which (for now) only contains nav bar and welcome message -->
+
+<html>
+<head>
+	<title>Monitor: Forum Posts</title>
+	<link rel="stylesheet" href="/styles/style.css">
+</head>
+    
+<body>
+
+	<%- include header %>
+
+    <%- include search %>
+
+    <%- include pageIndex %>
+
+    <!-- table with information -->
+    <table border='1'>
+        <% for(var i = 0; i < data.length; i++) { %>
+            <% if(i == 0){ %>
+            <tr>
+                <td>option</td>
+                <% for(var temp in data[i]) { %>
+                <td><%= temp %></td>
+                <% } %>
+            </tr>
+            <% } %>
+            <% if(data[i]['content'] != '[deleted by author]') { %>
+                <% continue; %>
+            <% } %>
+            <tr>
+                <td>
+                    <a href="/forumStrongDelete/<%= data[i]['id'] %>" onclick="return confirm('Confirm to delete it from database?');">strongDelete</a>
+                </td>
+                
+            <% for (var temp in data[i]) { %>
+	            <td><%= data[i][temp] %></td>   
+            <% } %>
+            </tr>
+        <% } %>
+    </table>
+
+</body>
+</html>
+

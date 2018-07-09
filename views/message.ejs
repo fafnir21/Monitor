@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+
+<!-- Show user notifications!  Should show just the title and date of each post and have an option to expand each post -->
+
+<html>
+<head>
+	<title>Monitor: Show User Notifications</title>
+    <link rel="stylesheet" href="/styles/style.css">
+	
+</head>
+
+<body>
+
+    <%- include header %>
+    
+    <%- include search %>
+
+    <%- include pageIndex %>
+
+    <!--  Store the displayed data getting from back end  -->
+    <table border='1'>
+        <% for(var i = 0; i < data.length; i++) { %>
+            <% if(i == 0){ %>
+            <tr>
+                <td>option</td>
+                <% for(var temp in data[i]) { %>
+                <td><%= temp %></td>
+                <% } %>
+            </tr>
+            <% } %>
+            <tr>
+                <td>
+                    <a href="/messageEdit/<%= data[i]['id'] %>">edit</a>
+                    <a href="/messageDelete/<%= data[i]['id'] %>" onclick="return confirm('Confirm to Delete?');">delete</a>
+                </td>
+                <% for (var temp in data[i]) { %>
+                <td><%= data[i][temp] %></td>
+                <% } %>
+            </tr>
+        <% } %>
+    </table>
+   
+</body>
+</html>
+

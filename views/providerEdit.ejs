@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+	<title> Add User Notification </title>
+	<link rel="stylesheet" href="/styles/style.css">
+	<script type="text/javascript" src="/js/common/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+	<%- include header %>
+
+	<br>
+
+	<!-- text area -->
+	<form method="post">
+		<center>Title: <input name="title" size="100" value="<%=data.title%>"></center>
+		<br>
+		<center>License: <input name="license" size="100" value="<%=data.license%>"></center>
+		<br>
+		<center>FirstName: <input name="firstName" size="100" value="<%=data.firstName%>"></center>
+		<br>
+		<center>LastName: <input name="lastName" size="100" value="<%=data.lastName%>"></center>
+		<br>
+		<center>Gender: <input name="gender" size="100" value="<%=data.gender%>"></center>
+		<br>
+		<center>isPsychiatrist: <input name="isPsychiatrist" size="100" value="<%=data.isPsychiatrist%>"></center>
+		<br>
+		<center><input type="submit" value="Submit"></center>
+	</form>
+
+
+</body>
+</html>

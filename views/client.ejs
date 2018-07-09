@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+
+<!-- User/Client page for people using the app who are not providers -->
+
+<html>
+<head>
+	<title>Monitor: Users</title>
+	<link rel="stylesheet" href="/styles/style.css">
+
+</head>
+    
+<body>
+
+	<%- include header %>
+
+    <%- include search %>
+
+	<%- include pageIndex %>
+
+    <!--  Display the data in table  -->
+    <table border='1'>
+        <% for(var i = 0; i < data.length; i++) { %>
+            <% if(i == 0){ %>
+            <tr>
+                <td>option</td>
+                <% for(var temp in data[i]) { %>
+                <td><%= temp %></td>
+                <% } %>
+            </tr>
+            <% } %>
+            <tr>
+                <td>
+                    <a href="/clientDelete/<%= data[i]['id'] %>" onclick="return confirm('Confirm to Delete?');">delete</a>
+                </td>
+                <% for (var temp in data[i]) { %>
+	                <% if(temp === 'password') { %>
+	                <td></td>
+	                <% } else { %>
+	                <td><%= data[i][temp] %></td>
+	                <% } %>
+                <% } %>
+            </tr>
+        <% } %>
+    </table>
+
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+<!-- navbar!!!!! -->
+	  <div class="container">
+	    <a href="/menu">Menu</a>
+	    <% if((req.session.role & 8) === 8) { %>
+	    <div class="dropdown">
+	      <button class="dropbtn">Notifications</button>
+	      <div class="dropdown-content">
+	        <a href="/message" style="color:white;">Show All</a>
+	        <a href="/messageAdd" style="color:white;">Add</a>
+	      </div>
+	    </div> 
+	    <% } if((req.session.role & 4) === 4) { %>
+	    <div class="dropdown">
+	      <button class="dropbtn">Forum Posts</button>
+	      <div class="dropdown-content">
+	        <a href="/forum" style="color:white;">Show All</a>
+	        <a href="/forumFlagged" style="color:white;">Flagged Posts</a>
+	        <a href="/forumRemoved" style="color:white;">Removed Posts</a>
+	      </div>
+	    </div>
+	    <% } if((req.session.role & 2) === 2) { %>
+	    <div class="dropdown">
+	      <button class="dropbtn" style="color:white;">Providers</button>
+	      <div class="dropdown-content">
+	        <a href="/provider" style="color:white;">Show Current</a>
+	        <a href style="color:white;">Applications</a>
+	        <a href style="color:white;">Statistics</a>
+	      </div>
+	    </div> 
+	    <% } if((req.session.role & 1) === 1) { %>
+	    <div class="dropdown">
+	      <button class="dropbtn">Users</button>
+	      <div class="dropdown-content">
+	        <a href="/client" style="color:white;">Show All</a>
+	        <a href style="color:white;">Statistics</a>
+	      </div>
+	    </div> 
+	    <% } %>
+	    <a href="/logout">Log Out</a>
+	    <% if(req.session.username === 'admin'){ %>
+	    <div class="dropdown">
+	      <button class="dropbtn">Admin Management</button>
+	      <div class="dropdown-content">
+	        <a href="/admin" style="color:white;">Show All</a>
+	        <a href="/adminAdd" style="color:white;">Create Administrator</a>
+	      </div>
+	    </div>
+	    <% } %>
+	  </div>

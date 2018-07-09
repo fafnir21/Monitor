@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+	<title> Edit Administrator Information </title>
+	<link rel="stylesheet" href="/styles/style.css">
+
+</head>
+
+<body>
+
+	<%- include header %>
+
+	<br>
+
+	<!-- text area -->
+	<form method="post">
+		<center>Username: <input name="username" size="100" value="<%=data.username%>" readonly></center>
+		<br>
+		<center>Password: <input name="password" size="100" value="<%=data.password%>"></center>
+		<br>
+		<center>
+		Role: <br>
+		<div class="checkbox-group">
+			<% if ((data.role & 8) === 8) { %>
+			Notification: <input type="checkbox" name="Notification" checked>&nbsp;
+			<% } else { %>
+			Notification: <input type="checkbox" name="Notification">&nbsp;
+			<% } if ((data.role & 4) === 4) {%>
+			Forum: <input type="checkbox" name="Forum" checked>&nbsp;
+			<% } else { %>
+			Forum: <input type="checkbox" name="Forum">&nbsp;
+			<% } if ((data.role & 2) === 2) { %>
+			Providers: <input type="checkbox" name="Providers" checked>&nbsp;
+			<% } else { %>
+			Providers: <input type="checkbox" name="Providers">&nbsp;
+			<% } if ((data.role & 1) === 1) { %>
+			Users: <input type="checkbox" name="Users" checked>&nbsp;
+			<% } else { %>
+			Users: <input type="checkbox" name="Users">&nbsp;
+			<% } %>
+		</div>
+		</center>
+		<br>
+		<center><input type="submit" value="Submit"></center>
+	</form>
+
+
+</body>
+</html>

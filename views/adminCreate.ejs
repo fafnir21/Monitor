@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+	<title> Create Administrator </title>
+	<link rel="stylesheet" href="/styles/style.css">
+
+</head>
+
+<body>
+
+	<%- include header %>
+
+	<br>
+
+	<!-- text area -->
+	<form method="post">
+		<center>Username: <input name="username" size="100" placeholder="username"></input></center>
+		<br>
+		<center>Password: <input name="password" size="100" placeholder="password"></input></center>
+		<br>
+		<center>
+		Role: <br>
+		<div class="checkbox-group">
+			Notification: <input type="checkbox" name="Notification">&nbsp;
+			Forum: <input type="checkbox" name="Forum">&nbsp;
+			Providers: <input type="checkbox" name="Providers">&nbsp;
+			Users: <input type="checkbox" name="Users">&nbsp;
+		</div>
+		</center>
+		<br>
+		<center><input type="submit"></center>
+	</form>
+
+</body>
+</html>

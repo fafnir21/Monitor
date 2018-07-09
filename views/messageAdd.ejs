@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+	<title> Add User Notification </title>
+	<link rel="stylesheet" href="/styles/style.css">
+
+</head>
+
+<body>
+
+	<%- include header %>
+
+	<br>
+
+	<!-- text area -->
+	<form method="post">
+		<center>Title: <textarea name="title" rows="1" cols="100" placeholder="User notification title"></textarea></center>
+		<br>
+		<center>Text: <textarea name="text" rows="10" cols="100" placeholder="Add a user notification here"></textarea></center>
+		<br>
+		<center>Type: <input name="feedtype" size="100" placeholder="message or blog"></input></center>
+		<br>
+		<center>Date: <input name="date" size="100" placeholder="Format: 06.01.2017" pattern="^(0[1-9]|1[0-2]).(0[1-9]|1\d|2\d|3[01]).(19|20)\d{2}$"></input></center>
+		<br>
+		<center>Author: <input name="author" size="100"></input></center>
+		<br>
+		<center><input type="submit"></center>
+	</form>
+
+</body>
+</html>

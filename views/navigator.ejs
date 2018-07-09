@@ -1,0 +1,20 @@
+<div class="nav-setting">
+  <div class="ui buttons">
+    <div class="ui floating dropdown button">
+      <div class="menu">
+        <% if (message) { %>
+          <a class="item" href="/message">Message</a>
+        <% } %>
+        <% if (provider) { %>
+          <a class="item" href="/provider">Provider</a>
+        <% } %>
+        <% if (forum) { %>
+          <a class="item" href="/forum">Forum</a>
+        <% } %> 
+      </div>
+      <div class="personal">
+        <a class="item" href="/signout">Sign Out</a>
+      </div>
+    </div>
+  </div>
+</div>
